@@ -33,7 +33,7 @@ function insertUpsDataEntryWW(upsId, json) {
       return oid[0].slice(0, 24) === '1.3.6.1.2.1.33.1.6.2.1.2'
     })
 
-    // ----- PROCESS LATEST ALARM DESCRIPTIONS -----
+    // ----- GET LATEST ALARMS FROM ALARM TABLE DESCRIPTION ENTRIES -----
     if (alarmTableDescriptions.length > 0) {
       latestAlarms = processAlarmTableDescriptions(alarmTableDescriptions, alarmDict)
     }
