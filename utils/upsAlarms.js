@@ -1,8 +1,5 @@
 module.exports = {
-  sayHello: function () {
-    console.log('Hellow')
-  },
-
+  
   processAlarmTableDescriptions: function (alarmTableDescriptions, alarmDict) {
     const processedAlarms = []
     for (let alarm of alarmTableDescriptions) {
@@ -30,7 +27,7 @@ module.exports = {
 
   insertNewAlarms: function (upsId, upsTimestamp, latestAlarms, alarmsDB) {
     for (let alarm of latestAlarms) {
-      // get all previous alarms from db
+      // get active alarms from db
       const prevAlarmsUpdated = alarmsDB.filter(
         alarm => alarm.alarmStatus === 'ACTIVE'
       )
@@ -52,7 +49,7 @@ module.exports = {
         }
         alarmsDB.push(fields)
       }
-    } // end iteration over latest alarms
+    }
   },
 
   updateRestoredAlarms: function (upsTimestamp, prevAlarms, latestAlarms) {
@@ -65,5 +62,5 @@ module.exports = {
       }
     }
   },
-  
+
 }
