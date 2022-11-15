@@ -1,4 +1,4 @@
-const { sayHello, processAlarmTableDescriptions, insertNewAlarms, updateRestoredAlarms } = require('./utils/upsAlarms')
+const { processAlarmTableDescriptions, insertNewAlarms, updateRestoredAlarms } = require('./utils/upsAlarms')
 
 
 const json = require('./upsData/json/json554WW')
@@ -47,11 +47,10 @@ function insertUpsDataEntryWW(upsId, json) {
 
     console.log('Latest Alarms: ', latestAlarms)
     console.log('DB Alarm Count: ', alarmsDB.length)
-    // console.log('DB Alarms: ', alarmsDB, '\n')
-    // console.log('test Previous Alarms: ', prevAlarms, '\n')
+    
     console.log("***** END *****\n")
   } // end iteration of json.basic[i].upsData (i.e. enf timestamped data)
-  sayHello()
+  console.log('DB Alarms: ', alarmsDB, '\n')
 }
 
 insertUpsDataEntryWW(upsId, json)
