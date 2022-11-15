@@ -17,10 +17,13 @@ function insertUpsDataEntryWW(upsId, json) {
 
   //------ PROCESS ALARM DATA FOR NEXT UPSDATA TIMESTAMP------
   for (let dataEntry of json.basic) {
-    console.log('\ntimestamp: ', dataEntry.upsTimestamp)
     const prevAlarms = alarmsDB.filter(alarm => alarm.alarmStatus === 'ACTIVE')
-    console.log('show previous active alarms (DB): ', prevAlarms)
     let latestAlarms = []
+    
+    console.log('\ntimestamp: ', dataEntry.upsTimestamp)
+    console.log('show previous active alarms (DB): ', prevAlarms)
+    
+    // set timestamp
     if (dataEntry.upsTimestamp > upsTimestamp) {
       upsTimestamp = dataEntry.upsTimestamp
     }
